@@ -1,3 +1,8 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+transaction:
+    type:     rest
+    host:     localhost
+    resource: App\Controller\TransactionController

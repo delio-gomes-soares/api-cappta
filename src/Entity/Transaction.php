@@ -17,7 +17,7 @@ class Transaction
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Merchant", inversedBy="transactions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Merchant")
      */
     private $merchant;
 
@@ -42,25 +42,25 @@ class Transaction
     private $installments;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Acquirer", inversedBy="transactions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Acquirer")
      * @ORM\JoinColumn(nullable=false)
      */
     private $acquirer;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\PaymentMethod", inversedBy="transactions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\PaymentMethod")
      * @ORM\JoinColumn(nullable=false)
      */
     private $paymentMethod;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\CardBrand", inversedBy="transactions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\CardBrand")
      * @ORM\JoinColumn(nullable=false)
      */
     private $cardBrand;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\StatusInfo", inversedBy="transactions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\StatusInfo")
      * @ORM\JoinColumn(nullable=false)
      */
     private $statusInfo;

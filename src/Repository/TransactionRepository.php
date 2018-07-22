@@ -22,19 +22,20 @@ class TransactionRepository extends ServiceEntityRepository
 //    /**
 //     * @return Transaction[] Returns an array of Transaction objects
 //     */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByForm($fields = null)
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $qb =  $this->createQueryBuilder('t')
+            ->leftJoin('t.merchant', 'm')
+            ;
+        if(count($fields['merchant'])){
+            $qb->andWhere('m.cnpj in (:cnpj)')
+            ->setParameter('cnpj', $fields['merchant']);
+        }
+
+        return $qb->getResult();
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Transaction
